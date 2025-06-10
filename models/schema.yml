@@ -1,84 +1,237 @@
 version: 2
+
 sources:
+  - name: raw
+    schema: raw
+    description: Projet dataset raw
+    tables:
 
-   - name: raw
+      - name: IPS_colleges
+        identifier: IPS_colleges
+        description: Indice de positionnement social des collèges
+        columns:
+          - name: UAI
+            description: Code UAI
+            tests:
+              - not_null
+          - name: IPS
+            description: Indice IPS
+            tests:
+              - not_null
+              - not_accepted_values:
+                  values: [0]
+        tests:
+          - unique:
+              column_name: UAI
 
-     schema: raw #où se situe la table dans BQ
+      - name: IPS_ecoles
+        identifier: IPS_ecoles
+        description: Indice de positionnement social des écoles
+        columns:
+          - name: UAI
+            description: Code UAI
+            tests:
+              - not_null
+          - name: IPS
+            description: Indice IPS
+            tests:
+              - not_null
+              - not_accepted_values:
+                  values: [0]
+        tests:
+          - unique:
+              column_name: UAI
 
-     description: projet dataset raw
+      - name: IPS_lycees
+        identifier: IPS_lycees
+        description: Indice de positionnement social des lycées
+        columns:
+          - name: UAI
+            description: Code UAI
+            tests:
+              - not_null
+          - name: IPS
+            description: Indice IPS
+            tests:
+              - not_null
+              - not_accepted_values:
+                  values: [0]
+        tests:
+          - unique:
+              column_name: UAI
 
-     tables:
+      - name: annuaire
+        identifier: annuaire
+        description: Annuaire des établissements
+        columns:
+          - name: UAI
+            description: Code UAI
+            tests:
+              - not_null
+          - name: Nom_etablissement
+            description: Nom de l’établissement
+            tests:
+              - not_null
+          - name: Type_etablissement
+            description: Type d’établissement
+            tests:
+              - not_null
+        tests:
+          - unique:
+              column_name: UAI
 
+      - name: baccalaureat_par_academie
+        identifier: baccalaureat_par_academie
+        description: Données baccalauréat par académie
+        columns:
+          - name: annee
+            description: Année
+            tests:
+              - not_null
+          - name: code_academie
+            description: Code académie
+            tests:
+              - not_null
+          - name: branche
+            description: Branche
+            tests:
+              - not_null
+          - name: serie
+            description: Série
+            tests:
+              - not_null
+          - name: nb_inscrits
+            description: Nombre d’inscrits
+            tests:
+              - not_null
+              - not_accepted_values:
+                  values: [0]
+        tests:
+          - unique:
+              column_name: "(annee, code_academie, branche, serie)"
 
-         - name: IPS_colleges
+      - name: brevet_par_etablissement
+        identifier: brevet_par_etablissement
+        description: Données du brevet par établissement
+        columns:
+          - name: UAI
+            description: Code UAI
+            tests:
+              - not_null
+          - name: annee
+            description: Année
+            tests:
+              - not_null
+          - name: nb_inscrits
+            description: Nombre d’inscrits
+            tests:
+              - not_null
+              - not_accepted_values:
+                  values: [0]
+        tests:
+          - unique:
+              column_name: "(UAI, annee)"
 
-           identifier: IPS_colleges #Quel est le nom exacte de la table dans BQ
+      - name: effectif_college
+        identifier: effectif_college
+        description: Effectifs des collèges
+        columns:
+          - name: UAI
+            description: Code UAI
+            tests:
+              - not_null
+          - name: annee
+            description: Année
+            tests:
+              - not_null
+          - name: effectif
+            description: Effectif
+            tests:
+              - not_null
+              - not_accepted_values:
+                  values: [0]
+        tests:
+          - unique:
+              column_name: "(UAI, annee)"
 
-           description: IPS_colleges
-         - name: IPS_ecoles
+      - name: effectif_lycee
+        identifier: effectif_lycee
+        description: Effectifs des lycées
+        columns:
+          - name: UAI
+            description: Code UAI
+            tests:
+              - not_null
+          - name: annee
+            description: Année
+            tests:
+              - not_null
+          - name: effectif
+            description: Effectif
+            tests:
+              - not_null
+              - not_accepted_values:
+                  values: [0]
+        tests:
+          - unique:
+              column_name: "(UAI, annee)"
 
-           identifier: IPS_ecoles #Quel est le nom exacte de la table dans BQ
+      - name: etablissements_ecole_prioritaire
+        identifier: prioritaires
+        description: Établissements relevant de l’éducation prioritaire
+        columns:
+          - name: UAI
+            description: Code UAI
+            tests:
+              - not_null
+          - name: nom_etablissement
+            description: Nom établissement
+            tests:
+              - not_null
+          - name: type_etablissement
+            description: Type d’établissement
+            tests:
+              - not_null
+        tests:
+          - unique:
+              column_name: UAI
 
-           description: IPS_ecoles
+      - name: iva_colleges
+        identifier: IVA_colleges
+        description: Indicateurs de valeur ajoutée des collèges
+        columns:
+          - name: UAI
+            description: Code UAI
+            tests:
+              - not_null
+          - name: annee
+            description: Année
+            tests:
+              - not_null
+          - name: iva
+            description: Valeur ajoutée
+            tests:
+              - not_null
+        tests:
+          - unique:
+              column_name: "(UAI, annee)"
 
-         - name: IPS_lycees
-
-           identifier: IPS_lycees #Quel est le nom exacte de la table dans BQ
-
-           description: IPS_lycees
-
-
-         - name: annuaire
-
-           identifier: annuaire #Quel est le nom exacte de la table dans BQ
-
-           description: annuaire
-
-
-         - name: baccalaureat_par_academie
-
-           identifier: baccalaureat_par_academie #Quel est le nom exacte de la table dans BQ
-
-           description: baccalaureat_par_academie
-
-
-         - name: brevet_par_etablissement
-
-           identifier: brevet_par_etablissement #Quel est le nom exacte de la table dans BQ
-
-           description: brevet_par_etablissement
-
-
-         - name: effectif_college
-
-           identifier: effectif_college  #Quel est le nom exacte de la table dans BQ
-
-           description: effectif_college
-
-
-         - name: effectif_lycee
-
-           identifier: effectif_lycee #Quel est le nom exacte de la table dans BQ
-
-           description: effectif_lycee
-
-
-         - name: etablissements_ecole_prioritaire
-
-           identifier: prioritaires #Quel est le nom exacte de la table dans BQ
-
-           description: etablissements_ecole_prioritaire
-
-
-         - name: iva_colleges
-
-           identifier: IVA_colleges #Quel est le nom exacte de la table dans BQ
-
-           description: indic_valeur_ajoutee_colleges
-
- 
-         - name: iva_lycees
-
-           identifier: IVA_lycees #Quel est le nom exacte de la table dans BQ
-
-           description: indic_valeur_ajoutee_lycees   
+      - name: iva_lycees
+        identifier: IVA_lycees
+        description: Indicateurs de valeur ajoutée des lycées
+        columns:
+          - name: UAI
+            description: Code UAI
+            tests:
+              - not_null
+          - name: annee
+            description: Année
+            tests:
+              - not_null
+          - name: iva
+            description: Valeur ajoutée
+            tests:
+              - not_null
+        tests:
+          - unique:
+              column_name: "(UAI, annee)"
