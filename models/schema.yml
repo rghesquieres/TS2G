@@ -1,0 +1,84 @@
+version: 2
+sources:
+
+   - name: raw
+
+     schema: raw #où se situe la table dans BQ
+
+     description: projet dataset raw
+
+     tables:
+
+
+         - name: IPS_colleges
+
+           identifier: IPS_colleges #Quel est le nom exacte de la table dans BQ
+
+           description: IPS_colleges
+         - name: IPS_ecoles
+
+           identifier: IPS_ecoles #Quel est le nom exacte de la table dans BQ
+
+           description: IPS_ecoles
+
+         - name: IPS_lycees
+
+           identifier: IPS_lycees #Quel est le nom exacte de la table dans BQ
+
+           description: IPS_lycees
+
+
+         - name: annuaire
+
+           identifier: annuaire #Quel est le nom exacte de la table dans BQ
+
+           description: annuaire
+
+
+         - name: baccalaureat_par_academie
+
+           identifier: baccalaureat_par_academie #Quel est le nom exacte de la table dans BQ
+
+           description: baccalaureat_par_academie
+
+
+         - name: brevet_par_etablissement
+
+           identifier: brevet_par_etablissement #Quel est le nom exacte de la table dans BQ
+
+           description: brevet_par_etablissement
+
+
+         - name: effectif_college
+
+           identifier: effectif_college  #Quel est le nom exacte de la table dans BQ
+
+           description: effectif_college
+
+
+         - name: effectif_lycee
+
+           identifier: effectif_lycee #Quel est le nom exacte de la table dans BQ
+
+           description: effectif_lycee
+
+
+         - name: etablissements_ecole_prioritaire
+
+           identifier: prioritaires #Quel est le nom exacte de la table dans BQ
+
+           description: etablissements_ecole_prioritaire
+
+
+         - name: iva_colleges
+
+           identifier: IVA_colleges #Quel est le nom exacte de la table dans BQ
+
+           description: indic_valeur_ajoutee_colleges
+
+ 
+         - name: iva_lycees
+
+           identifier: IVA_lycees #Quel est le nom exacte de la table dans BQ
+
+           description: indic_valeur_ajoutee_lycees   
