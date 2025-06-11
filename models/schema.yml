@@ -26,6 +26,12 @@ sources:
         identifier: baccalaureat_par_academie
         description: Données baccalauréat par académie
 
+
+      - name: baccalaureat_par_departement
+        identifier: baccalaureat_par_departement
+        description: Données baccalaureat_par_departement
+
+
       - name: brevet_par_etablissement
         identifier: brevet_par_etablissement
         description: Données du brevet par établissement
@@ -49,4 +55,3 @@ sources:
       - name: iva_lycees
         identifier: IVA_lycees
         description: Indicateurs de valeur ajoutée des lycées
-        
