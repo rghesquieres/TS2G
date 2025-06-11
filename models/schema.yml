@@ -18,7 +18,7 @@ sources:
         identifier: IPS_lycees
         description: Indice de positionnement social des lycées
 
-      - name: annuaire
+      - name: annuaire2
         identifier: annuaire
         description: Annuaire des établissements
 
@@ -36,8 +36,8 @@ sources:
         identifier: brevet_par_etablissement
         description: Données du brevet par établissement
 
-      - name: effectif_college
-        identifier: effectif_college
+      - name: effectif_colleges
+        identifier: effectif_colleges
         description: Effectifs des collèges
 
       - name: effectif_lycee
