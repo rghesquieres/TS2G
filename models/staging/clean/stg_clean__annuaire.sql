@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ source('raw', 'annuaire') }}
+    select * from {{ source('clean', 'annuaire') }}
 
 ),
 
@@ -40,7 +40,20 @@ renamed as (
         pial,
         position,
         latitude,
-        longitude
+        longitude,
+        has_pial,
+        uai,
+        type_etablissement,
+        nom_etablissement,
+        has_etablissement_mere,
+        section_arts,
+        section_theatre,
+        section_sport,
+        section_internationale ,
+        section_europeenne,
+        lycee_agricole,
+        lycee_militaire,
+        lycee_des_metiers
 
     from source
 

@@ -2,26 +2,24 @@ with
 
 source as (
 
-    select * from {{ source('raw', 'effectif_college') }}
+    select * from {{ source('clean', 'effectif_lycee') }}
 
 ),
 
 renamed as (
 
     select
+        pk,
         uai,
         annee,
         code_dep,
         code_academie,
         code_reg_academie,
         code_postal,
-        rep,
-        rep_plus,
-        nb_eleves_total,
-        total_3,
-        hors_segpa_hors_ulis_3,
-        segpa_3,
-        ulis_3
+        secteur,
+        nb_eleves,
+        nb_0_g,
+        nb_0_t
 
     from source
 

@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ source('raw', 'IPS_colleges') }}
+    select * from {{ source('clean', 'IPS_ecoles') }}
 
 ),
 
@@ -13,9 +13,8 @@ renamed as (
         annee,
         code_dep,
         code_insee,
-        secteur,
         ips,
-        ips_sigma
+        pk
 
     from source
 

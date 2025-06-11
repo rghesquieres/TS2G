@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ source('raw', 'brevet_par_etablissement') }}
+    select * from {{ source('clean', 'brevet_par_etablissement') }}
 
 ),
 

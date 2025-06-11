@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ source('raw', 'IPS_lycees') }}
+    select * from {{ source('clean', 'IPS_lycees') }}
 
 ),
 
@@ -17,7 +17,8 @@ renamed as (
         ips_pro,
         ips_all,
         ips_sigma_gt,
-        ips_sigma_pro
+        ips_sigma_pro,
+        pk
 
     from source
 
