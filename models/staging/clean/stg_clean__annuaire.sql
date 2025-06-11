@@ -53,7 +53,8 @@ renamed as (
         section_europeenne,
         lycee_agricole,
         lycee_militaire,
-        lycee_des_metiers
+        lycee_des_metiers,
+        statut
 
     from source
 
