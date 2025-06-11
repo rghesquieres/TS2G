@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ source('clean', 'annuaire') }}
+    select * from {{ source('clean', 'annuaire2') }}
 
 ),
 
@@ -49,7 +49,7 @@ renamed as (
         section_arts,
         section_theatre,
         section_sport,
-        section_internationale ,
+        `section_internationale ` as section_internationale,
         section_europeenne,
         lycee_agricole,
         lycee_militaire,
