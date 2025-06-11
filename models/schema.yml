@@ -1,9 +1,9 @@
 version: 2
 
 sources:
-  - name: raw
-    schema: raw
-    description: Projet dataset raw
+  - name: clean
+    schema: clean
+    description: Projet dataset rclean
     tables:
 
       - name: IPS_colleges
