@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ source('raw', 'iva_lycees') }}
+    select * from {{ source('clean', 'iva_lycees') }}
 
 ),
 
@@ -12,8 +12,6 @@ renamed as (
         annee,
         uai,
         code_region,
-        code_dep,
-        code_insee,
         nb_presents_all,
         taux_reussite_all,
         va_taux_reussite_all,
@@ -29,7 +27,9 @@ renamed as (
         va_taux_acces_1_bac,
         va_taux_acces_0_bac,
         nb_mention_tb_g,
-        nb_metion_tb_t
+        nb_metion_tb_t,
+        code_dep,
+        code_commune
 
     from source
 

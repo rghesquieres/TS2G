@@ -1,237 +1,52 @@
 version: 2
 
 sources:
-  - name: raw
-    schema: raw
-    description: Projet dataset raw
+  - name: clean
+    schema: clean
+    description: Projet dataset rclean
     tables:
 
       - name: IPS_colleges
         identifier: IPS_colleges
         description: Indice de positionnement social des collèges
-        columns:
-          - name: UAI
-            description: Code UAI
-            tests:
-              - not_null
-          - name: IPS
-            description: Indice IPS
-            tests:
-              - not_null
-              - not_accepted_values:
-                  values: [0]
-        tests:
-          - unique:
-              column_name: UAI
 
       - name: IPS_ecoles
         identifier: IPS_ecoles
         description: Indice de positionnement social des écoles
-        columns:
-          - name: UAI
-            description: Code UAI
-            tests:
-              - not_null
-          - name: IPS
-            description: Indice IPS
-            tests:
-              - not_null
-              - not_accepted_values:
-                  values: [0]
-        tests:
-          - unique:
-              column_name: UAI
 
       - name: IPS_lycees
         identifier: IPS_lycees
         description: Indice de positionnement social des lycées
-        columns:
-          - name: UAI
-            description: Code UAI
-            tests:
-              - not_null
-          - name: IPS
-            description: Indice IPS
-            tests:
-              - not_null
-              - not_accepted_values:
-                  values: [0]
-        tests:
-          - unique:
-              column_name: UAI
 
       - name: annuaire
         identifier: annuaire
         description: Annuaire des établissements
-        columns:
-          - name: UAI
-            description: Code UAI
-            tests:
-              - not_null
-          - name: Nom_etablissement
-            description: Nom de l’établissement
-            tests:
-              - not_null
-          - name: Type_etablissement
-            description: Type d’établissement
-            tests:
-              - not_null
-        tests:
-          - unique:
-              column_name: UAI
 
       - name: baccalaureat_par_academie
         identifier: baccalaureat_par_academie
         description: Données baccalauréat par académie
-        columns:
-          - name: annee
-            description: Année
-            tests:
-              - not_null
-          - name: code_academie
-            description: Code académie
-            tests:
-              - not_null
-          - name: branche
-            description: Branche
-            tests:
-              - not_null
-          - name: serie
-            description: Série
-            tests:
-              - not_null
-          - name: nb_inscrits
-            description: Nombre d’inscrits
-            tests:
-              - not_null
-              - not_accepted_values:
-                  values: [0]
-        tests:
-          - unique:
-              column_name: "(annee, code_academie, branche, serie)"
 
       - name: brevet_par_etablissement
         identifier: brevet_par_etablissement
         description: Données du brevet par établissement
-        columns:
-          - name: UAI
-            description: Code UAI
-            tests:
-              - not_null
-          - name: annee
-            description: Année
-            tests:
-              - not_null
-          - name: nb_inscrits
-            description: Nombre d’inscrits
-            tests:
-              - not_null
-              - not_accepted_values:
-                  values: [0]
-        tests:
-          - unique:
-              column_name: "(UAI, annee)"
 
       - name: effectif_college
         identifier: effectif_college
         description: Effectifs des collèges
-        columns:
-          - name: UAI
-            description: Code UAI
-            tests:
-              - not_null
-          - name: annee
-            description: Année
-            tests:
-              - not_null
-          - name: effectif
-            description: Effectif
-            tests:
-              - not_null
-              - not_accepted_values:
-                  values: [0]
-        tests:
-          - unique:
-              column_name: "(UAI, annee)"
 
       - name: effectif_lycee
         identifier: effectif_lycee
         description: Effectifs des lycées
-        columns:
-          - name: UAI
-            description: Code UAI
-            tests:
-              - not_null
-          - name: annee
-            description: Année
-            tests:
-              - not_null
-          - name: effectif
-            description: Effectif
-            tests:
-              - not_null
-              - not_accepted_values:
-                  values: [0]
-        tests:
-          - unique:
-              column_name: "(UAI, annee)"
 
       - name: etablissements_ecole_prioritaire
         identifier: prioritaires
         description: Établissements relevant de l’éducation prioritaire
-        columns:
-          - name: UAI
-            description: Code UAI
-            tests:
-              - not_null
-          - name: nom_etablissement
-            description: Nom établissement
-            tests:
-              - not_null
-          - name: type_etablissement
-            description: Type d’établissement
-            tests:
-              - not_null
-        tests:
-          - unique:
-              column_name: UAI
 
       - name: iva_colleges
         identifier: IVA_colleges
         description: Indicateurs de valeur ajoutée des collèges
-        columns:
-          - name: UAI
-            description: Code UAI
-            tests:
-              - not_null
-          - name: annee
-            description: Année
-            tests:
-              - not_null
-          - name: iva
-            description: Valeur ajoutée
-            tests:
-              - not_null
-        tests:
-          - unique:
-              column_name: "(UAI, annee)"
 
       - name: iva_lycees
         identifier: IVA_lycees
         description: Indicateurs de valeur ajoutée des lycées
-        columns:
-          - name: UAI
-            description: Code UAI
-            tests:
-              - not_null
-          - name: annee
-            description: Année
-            tests:
-              - not_null
-          - name: iva
-            description: Valeur ajoutée
-            tests:
-              - not_null
-        tests:
-          - unique:
-              column_name: "(UAI, annee)"
+        

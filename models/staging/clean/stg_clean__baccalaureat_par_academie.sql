@@ -2,7 +2,7 @@ with
 
 source as (
 
-    select * from {{ source('raw', 'baccalaureat_par_academie') }}
+    select * from {{ source('clean', 'baccalaureat_par_academie') }}
 
 ),
 
