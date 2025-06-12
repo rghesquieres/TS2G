@@ -14,15 +14,15 @@ renamed as (
         annee,
         code_dep,
         code_academie,
-        code_reg_academie,
+        code_region,
         code_postal,
         rep,
         rep_plus,
-        nb_eleves_total,
-        total_3,
-        hors_segpa_hors_ulis_3,
-        segpa_3,
-        ulis_3
+        nb_eleves,
+        nb_3_all,
+        nb_3,
+        nb_3_segpa,
+        nb_3_ulis
 
     from source
 

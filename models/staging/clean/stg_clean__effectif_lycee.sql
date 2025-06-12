@@ -14,7 +14,7 @@ renamed as (
         annee,
         code_dep,
         code_academie,
-        code_reg_academie,
+        code_region,
         code_postal,
         secteur,
         nb_eleves,
