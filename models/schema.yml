@@ -55,3 +55,13 @@ sources:
       - name: iva_lycees
         identifier: IVA_lycees
         description: Indicateurs de valeur ajoutée des lycées
+
+
+      - name: region_geographie
+        identifier: region_geographie
+        description: regions
+
+      - name: departements_geographie
+        identifier: departements_geographie
+        description: departements
+        
