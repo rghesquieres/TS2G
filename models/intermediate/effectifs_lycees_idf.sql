@@ -19,5 +19,5 @@ SELECT
 
 
 FROM {{ source('clean', 'effectif_lycee') }} AS effectif_lycees
-WHERE effectif_lycees.annee IN (2020, 2021)
+WHERE effectif_lycees.annee IN (2021, 2022)
 AND effectif_lycees.code_dep IN ("75", "77", "78", "91", "92", "93", "94", "95")
