@@ -6,7 +6,7 @@ SELECT
   code_dep,
   code_region,
   nb_eleves
-FROM {{ ref('effective_lycee_filtre') }}
+FROM {{ ref('effectif_lycees') }}
 
 UNION ALL
 
@@ -18,5 +18,5 @@ SELECT
   code_dep,
   code_region,
   nb_eleves
-FROM {{ ref('effective_college_filtre') }}
+FROM {{ ref('effectif_college') }}
 
