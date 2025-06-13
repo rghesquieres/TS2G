@@ -1,30 +1,31 @@
 
 WITH annuaire_new as
 (
-SELECT  uai, 
+SELECT
+uai, 
 type_etablissement, 
 nom_etablissement,
-code_dep, 
-departement, 
+code_dep,  
 code_region, 
-region, 
-segpa, 
+IF(ulis = 1, 1, 0) as ulis,
+IF(segpa = 1, 1, 0) as segpa,
 rep, 
 position, 
 latitude, 
 longitude, 
 has_pial,
-section_arts, 
-section_theatre, 
-section_sport, 
-`section_internationale ` as section_internationale,
-section_europeenne, 
-lycee_agricole, 
-lycee_militaire, 
-lycee_des_metiers, 
+IF(restauration = 1, 1, 0) as restauration,
+IF(hebergement = 1, 1, 0) as hebergement,
+IF(section_arts = 1, 1, 0) as section_arts,
+IF(section_theatre = 1, 1, 0) as section_theatre,
+IF(section_sport = 1, 1, 0) as section_sport,
+IF(section_internationale = 1, 1, 0) as section_internationale,
+IF(section_europeenne = 1, 1, 0) as section_europeenne,
+IF(lycee_agricole = 1, 1, 0) as lycee_agricole,
+IF(lycee_militaire = 1, 1, 0) as lycee_militaire,
+IF(lycee_des_metiers = 1, 1, 0) as lycee_des_metiers,
 statut
 FROM `ts2g-462411.clean.annuaire` 
-WHERE type_etablissement IN ('Lycée', 'Collège')
 )
 
 SELECT
@@ -32,9 +33,8 @@ uai,
 type_etablissement, 
 nom_etablissement,
 LPAD(code_dep, 3, '0') as code_dep, 
-departement, 
-code_region, 
-region, 
+code_region,
+ulis,
 segpa, 
 rep, 
 has_pial,
@@ -43,6 +43,8 @@ latitude,
 longitude, 
 CASE
   WHEN NOT (
+    restauration = 1 OR
+    hebergement = 1 OR
     section_arts = 1 OR 
     section_theatre = 1 OR 
     section_sport = 1 OR 
@@ -54,11 +56,11 @@ CASE
   )
   THEN 'aucune option'
   ELSE RTRIM(CONCAT(
-    IF(section_arts = 1, 'section arts, ', ''),
-    IF(section_theatre = 1, 'section théâtre, ', ''),
-    IF(section_sport = 1, 'section sport, ', ''),
-    IF(section_internationale = 1, 'section internationale, ', ''),
-    IF(section_europeenne = 1, 'section européenne, ', ''),
+    IF(section_arts = 1, 'arts, ', ''),
+    IF(section_theatre = 1, 'théâtre, ', ''),
+    IF(section_sport = 1, 'sport, ', ''),
+    IF(section_internationale = 1, 'internationale, ', ''),
+    IF(section_europeenne = 1, 'européenne, ', ''),
     IF(lycee_agricole = 1, 'lycée agricole, ', ''),
     IF(lycee_militaire = 1, 'lycée militaire, ', ''),
     IF(lycee_des_metiers = 1, 'lycée des métiers, ', '')
