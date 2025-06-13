@@ -18,7 +18,7 @@ sources:
         identifier: IPS_lycees
         description: Indice de positionnement social des lycées
 
-      - name: annuaire2
+      - name: annuaire
         identifier: annuaire
         description: Annuaire des établissements
 
