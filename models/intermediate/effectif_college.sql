@@ -1,8 +1,9 @@
 SELECT pk, 
 uai, 
 annee,
-code_dep,
+LPAD(code_dep, 3, '0') AS code_dep,
 code_region,
-nb_eleves 
+nb_eleves,
+nb_3
 FROM {{ ref('stg_clean__effectif_colleges') }}
-WHERE annee = 2022
+WHERE annee IN (2022)
