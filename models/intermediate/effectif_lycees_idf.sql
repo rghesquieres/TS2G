@@ -12,7 +12,7 @@ SELECT
   
   code_region,
   secteur,
-  nb_eleves AS eleves_totaux,
+  nb_eleves,
   nb_0_g,
   nb_0_t,
   nb_0_g + nb_0_t AS nb_0
