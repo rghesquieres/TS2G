@@ -9,6 +9,7 @@ SELECT
     has_pial,
     options_speciales,
     nb_eleves,
+    statut,
     geo.departement
 FROM {{ ref('annuaire_effectif') }} as an
 LEFT JOIN {{ ref('departement_geographie') }} as geo
