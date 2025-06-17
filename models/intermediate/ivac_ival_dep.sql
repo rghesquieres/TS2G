@@ -16,7 +16,7 @@ SELECT
     ROUND(AVG(va_taux_reussite_all),2) AS va_taux_reussite_all,
     ROUND(AVG(va_taux_acces_2_0),2) AS va_taux_acces_2_0,
     ROUND(AVG(va_taux_mention_all),2) AS va_taux_mention_all,
-    ROUND(AVG(va_taux_acces_1_bac),2) AS va_taux_acces_2_bac,
+    ROUND(AVG(va_taux_acces_1_bac),2) AS va_taux_acces_1_bac,
     ROUND(AVG(va_taux_acces_0_bac),2) AS va_taux_acces_0_bac,
     ROUND(AVG(va_taux_reussite_all + va_taux_acces_2_0 + va_taux_mention_all + va_taux_acces_1_bac + va_taux_acces_0_bac)) AS va_totale_l
 FROM {{ ref('ival_ips_IDF') }} as l
@@ -37,3 +37,4 @@ SELECT
 FROM jointure as j
 INNER JOIN {{ ref('departement_geographie') }} as dep
     USING(code_dep)
+
